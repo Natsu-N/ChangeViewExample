@@ -13,8 +13,7 @@ namespace ChangeViewExample
             AvaloniaXamlLoader.Load(this);
         }
 
-        public override void OnFrameworkInitializationCompleted()
-        {
+        public override void OnFrameworkInitializationCompleted()       {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
                 desktop.MainWindow = new MainWindow

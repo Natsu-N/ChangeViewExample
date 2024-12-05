@@ -7,13 +7,36 @@
         Title="ChangeViewExample"
         xmlns:vm="clr-namespace:ChangeViewExample.ViewModel;assembly=ChangeViewExample.ViewModel"
         x:DataType="vm:MainView">
+  
   <Design.DataContext>
     <vm:MainView/>
   </Design.DataContext>
+  
+  <Window.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="..\InnerViews\RectangleView.axaml"/>
+        <ResourceInclude Source="..\InnerViews\TextView.axaml"/>
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Window.Resources>
+
+  <Window.DataTemplates>
+    <StaticResource ResourceKey="Rectangle"/>
+    <StaticResource ResourceKey="TextView"/>
+  </Window.DataTemplates>
+ 
   <Grid RowDefinitions="auto *">
     <Button HorizontalAlignment="Center"
             Margin="10"
-            Content="{Binding Text}" 
+            Content="{Binding Text}"
             Command="{Binding ChangeViewCommand}"/>
+    <ContentControl Grid.Row="1"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Margin="50"
+                    BorderBrush="Black"
+                    BorderThickness="1"                   
+                    Content="{Binding SelectedView}"/>
   </Grid>
 </Window>

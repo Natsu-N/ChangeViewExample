@@ -8,17 +8,36 @@ namespace ChangeViewExample.ViewModel
     public class MainView: ReactiveObject
     {
         [Reactive]
-        public string Text { get; set; } = "Initial with View Model project";
+        public string Text { get; set; } = "Change view";
         public ICommand ChangeViewCommand { get; }
 
+        [Reactive]
+        public IInnerView SelectedView { get; set; }
         public MainView()
         {
             ChangeViewCommand = ReactiveCommand.Create(ChangeView);
+            SelectedView = new ViewRectangle();
         }
 
         private void ChangeView()
         {
-            Text = "Change view command exists";
+            if (SelectedView is ViewRectangle)
+            {
+                SelectedView = new ViewText();
+            }
+            else 
+            {
+                SelectedView = new ViewRectangle();
+            }
         }
+
+    }
+
+    public class ViewRectangle:ReactiveObject, IInnerView
+    { }
+
+    public class ViewText : ReactiveObject, IInnerView
+    {
+        public string Text { get; set; } = "The secondary view";
     }
 }

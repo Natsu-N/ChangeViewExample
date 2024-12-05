@@ -1,0 +1,8 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vm="clr-namespace:ChangeViewExample.ViewModel;assembly=ChangeViewExample.ViewModel">
+  <DataTemplate x:Key="Rectangle" x:DataType="vm:ViewRectangle">
+    <Rectangle Fill="Aqua" Width="50" Height="20"/>
+  </DataTemplate>
+
+</ResourceDictionary>

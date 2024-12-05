@@ -1,4 +1,5 @@
 ﻿using Avalonia;
+using Avalonia.ReactiveUI;
 using System;
 
 namespace ChangeViewExample
@@ -17,6 +18,7 @@ namespace ChangeViewExample
             => AppBuilder.Configure<App>()
                 .UsePlatformDetect()
                 .WithInterFont()
-                .LogToTrace();
+                .LogToTrace()
+                .UseReactiveUI();
     }
 }

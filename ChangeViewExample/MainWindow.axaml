@@ -10,5 +10,10 @@
   <Design.DataContext>
     <vm:MainView/>
   </Design.DataContext>
-  <TextBlock Text="{Binding Text}"></TextBlock>
+  <Grid RowDefinitions="auto *">
+    <Button HorizontalAlignment="Center"
+            Margin="10"
+            Content="{Binding Text}" 
+            Command="{Binding ChangeViewCommand}"/>
+  </Grid>
 </Window>
